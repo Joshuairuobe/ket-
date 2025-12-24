@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Work with Kext</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: radial-gradient(circle at top, #0f2f2f, #070f10 70%);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* ================= LAYOUT ================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ================= LEFT CONTENT ================= */
+.intro span {
+  color: #6ee7e7;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.05;
+  margin: 20px 0;
+  letter-spacing: -0.02em;
+}
+
+.intro p {
+  color: rgba(255,255,255,0.75);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 460px;
+}
+
+/* ================= FORM ================= */
+.form-wrapper {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+}
+
+form {
+  display: grid;
+  gap: 16px;
+}
+
+label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+
+input,
+select,
+textarea {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 14px 16px;
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  transition: border 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #6ee7e7;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button {
+  margin-top: 12px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #16a6b0, #0f8f96);
+  color: #001010;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(22,166,176,0.4);
+}
+
+/* ================= SUCCESS ================= */
+.success {
+  padding: 40px;
+  text-align: center;
+}
+
+.success h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.success p {
+  color: rgba(255,255,255,0.7);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .container {
+    padding: 60px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="grid">
+
+    <!-- LEFT CONTENT -->
+    <div class="intro">
+      <span>Work with Kext</span>
+      <h1>Let’s build something that lasts</h1>
+      <p>
+        We partner with ambitious brands to design, build, and scale digital
+        media systems that drive measurable growth. Tell us a bit about your
+        goals — we’ll take it from there.
+      </p>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-wrapper">
+      <form id="contactForm" action="https://formspree.io/f/xgowdzzq" method="POST">
+
+        <label>Your name</label>
+        <input type="text" name="name" required>
+
+        <label>Email address</label>
+        <input type="email" name="email" required>
+
+        <label>Company (optional)</label>
+        <input type="text" name="company">
+
+        <label>Service you’re interested in</label>
+        <select name="service" required>
+          <option value="">Select a service</option>
+          <option>Social Media Management</option>
+          <option>Brand & Graphic Design</option>
+          <option>Web Development</option>
+          <option>Paid Advertising</option>
+          <option>Growth Strategy</option>
+          <option>Multiple Services</option>
+        </select>
+
+        <label>Estimated budget</label>
+        <select name="budget">
+          <option value="">Select range</option>
+          <option>£1k – £5k</option>
+          <option>£5k – £15k</option>
+          <option>£15k – £30k</option>
+          <option>£30k+</option>
+        </select>
+
+        <label>Project details</label>
+        <textarea name="message" placeholder="Tell us about your goals, timeline, or challenges…" required></textarea>
+
+        <button type="submit">Send message</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const response = await fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if (response.ok) {
+    form.parentElement.innerHTML = `
+      <div class="success">
+        <h2>Message received</h2>
+        <p>Thanks for reaching out. Our team will review your request and get back to you shortly.</p>
+      </div>
+    `;
+  }
+});
+</script>
+
+</body>
+</html>

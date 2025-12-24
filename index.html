@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kext Media</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ================= RESET ================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Inter, sans-serif;
+  background: #0b1416;
+  color: #e5f4f4;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ================= VARIABLES ================= */
+:root {
+  --teal: #16a6b0;
+  --mint: #cfeecf;
+  --dark: #0b1416;
+  --glass: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.12);
+}
+
+/* ================= LAYOUT ================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+/* ================= NAV ================= */
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  background: rgba(11,20,22,0.7);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+/* ================= BRAND LOGO ================= */
+.logo img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.nav a {
+  margin-left: 28px;
+  text-decoration: none;
+  color: #e5f4f4;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.nav a:hover { opacity: 1; }
+
+/* ================= HERO ================= */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(22,166,176,0.15), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(207,238,207,0.12), transparent 45%);
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.hero p {
+  font-size: 20px;
+  opacity: 0.85;
+  max-width: 720px;
+  margin: auto auto 48px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn {
+  padding: 16px 36px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: #e5f4f4;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--teal), #0f8f96);
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* ================= SECTIONS ================= */
+section {
+  padding: 140px 0;
+}
+
+/* ================= ABOUT ================= */
+.about {
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 40px;
+  margin-bottom: 24px;
+}
+
+.about p {
+  max-width: 800px;
+  margin: auto;
+  opacity: 0.85;
+}
+
+/* ================= SERVICES ================= */
+.services h2,
+.why h2 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.services p {
+  text-align: center;
+  max-width: 900px;
+  margin: auto auto 80px;
+  opacity: 0.85;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.service-card {
+  padding: 48px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  transition: 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(22,166,176,0.5);
+}
+
+.service-card h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  opacity: 0.85;
+}
+
+/* ================= WHY ================= */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  margin-top: 64px;
+}
+
+.why-item h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+/* ================= CTA ================= */
+.cta {
+  text-align: center;
+  background:
+    linear-gradient(135deg, rgba(22,166,176,0.2), rgba(0,0,0,0.4));
+}
+
+.cta h2 {
+  font-size: 44px;
+  margin-bottom: 32px;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+}
+
+.footer h4 {
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.footer p {
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+.footer-brand img {
+  width: 180px;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .service-grid,
+  .why-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav { display: none; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <div class="logo">
+  <img src="ket .png" alt="Kext logo">
+</div>
+
+    <nav class="nav">
+      
+      <a href="about.html">About</a>
+      <a href="service.html">Services</a>
+      <a href="Work.html">Work with us</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Engineering Digital Growth for Modern Media Brands</h1>
+    <p>
+      Kext is a full-service media and technology partner helping
+      organisations scale visibility, trust, and performance through
+      precision-driven digital systems.
+    </p>
+    <div class="hero-actions">
+      <a href="work.html" class="btn primary">Start a conversation</a>
+
+      <a href="capabilities.html" class="btn">View capabilities</a>
+
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <h2>About Kext</h2>
+    <p>
+      We work with ambitious organisations that require clarity,
+      consistency, and measurable results. Our approach blends strategy,
+      technology, and execution to build long-term digital advantage.
+    </p>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <h2>Capabilities</h2>
+    <p>Integrated services designed for scale, trust, and performance.</p>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Media Strategy</h3>
+        <p>Audience-driven campaigns built on data, insight, and measurable outcomes.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Brand Systems</h3>
+        <p>Visual and verbal identity frameworks engineered for consistency and authority.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Digital Platforms</h3>
+        <p>High-performance websites and systems designed to convert and scale.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Paid Growth</h3>
+        <p>Precision-targeted campaigns across search and social ecosystems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="container">
+    <h2>Why Organisations Work With Us</h2>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>Proven Methodology</h3>
+        <p>Every decision is grounded in research, testing, and real-world results.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Senior-Led Execution</h3>
+        <p>No hand-offs, no guesswork. Experienced specialists at every stage.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Scalable Systems</h3>
+        <p>We build platforms and strategies designed to grow with your organisation.</p>
+      </div>
+
+      <div class="why-item">
+        <h3>Transparent Partnership</h3>
+        <p>Clear communication, measurable outcomes, and shared accountability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Let’s Build Something That Lasts</h2>
+    <button class="btn primary">Talk to Kext</button>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+  <img src="ket .png" alt="Kext logo">
+</div>
+
+    <div>
+      <h4>Navigation</h4>
+      <p>Home</p>
+      <p>About</p>
+      <p>Services</p>
+      <p>Work with us</p>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>Hello@kextmedia.com</p>
+      <p>United Kingdom</p>
+    </div>
+
+    <div>
+      <h4>Address</h4>
+      <p>Aberdeen<br>Scotland, UK</p>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById("viewCapabilities").addEventListener("click", () => {
+    document.getElementById("capabilities").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
+

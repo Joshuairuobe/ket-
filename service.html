@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Kext</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ================= RESET ================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Inter, sans-serif;
+  background: #0b1416;
+  color: #e5f4f4;
+  line-height: 1.6;
+}
+
+/* ================= VARIABLES ================= */
+:root {
+  --teal: #16a6b0;
+  --glass: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.12);
+}
+
+/* ================= LAYOUT ================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 140px 0;
+}
+
+/* ================= NAV ================= */
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  background: rgba(11,20,22,0.8);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 36px;
+}
+
+.nav a {
+  margin-left: 28px;
+  text-decoration: none;
+  color: #e5f4f4;
+  opacity: 0.85;
+}
+
+.nav a:hover { opacity: 1; }
+
+/* ================= HERO ================= */
+.hero {
+  padding-top: 180px;
+  text-align: center;
+}
+
+.hero span {
+  color: var(--teal);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 68px);
+  margin: 24px auto;
+  max-width: 900px;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: auto;
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+/* ================= SERVICES ================= */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  margin-top: 80px;
+}
+
+.service {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 56px;
+  transition: 0.4s ease;
+}
+
+.service:hover {
+  transform: translateY(-8px);
+  border-color: rgba(22,166,176,0.5);
+}
+
+.service h2 {
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.service p {
+  opacity: 0.85;
+  margin-bottom: 24px;
+}
+
+.service ul {
+  list-style: none;
+}
+
+.service li {
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.service li::before {
+  content: "— ";
+  color: var(--teal);
+}
+
+/* ================= CTA ================= */
+.cta {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(22,166,176,0.2), rgba(0,0,0,0.5));
+}
+
+.cta h2 {
+  font-size: 44px;
+  margin-bottom: 24px;
+}
+
+.cta a {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 16px 36px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--teal), #0f8f96);
+  color: #001010;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+}
+
+.footer h4 {
+  margin-bottom: 16px;
+}
+
+.footer p {
+  opacity: 0.8;
+}
+/* ================= FOOTER LOGO ================= */
+.footer-brand img {
+  width: 180px;
+  height: auto;
+  opacity: 0.95;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+  .services-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <div class="logo">
+      <img src="ket .png" alt="Kext logo">
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      
+      <a href="work.html">Work with us</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span>Services</span>
+    <h1>Integrated digital services built for scale, trust, and performance</h1>
+    <p>
+      Our services are designed as connected systems — aligning strategy,
+      execution, and optimisation to support long-term growth.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container services-grid">
+
+    <div class="service">
+      <h2>Media Strategy</h2>
+      <p>We develop audience-first media strategies that prioritise clarity, efficiency, and measurable outcomes.</p>
+      <ul>
+        <li>Audience research and segmentation</li>
+        <li>Channel and platform strategy</li>
+        <li>Campaign architecture</li>
+        <li>Performance metrics and KPIs</li>
+      </ul>
+    </div>
+
+    <div class="service">
+      <h2>Brand Systems</h2>
+      <p>We design scalable brand systems that maintain consistency and authority across every touchpoint.</p>
+      <ul>
+        <li>Visual identity systems</li>
+        <li>Brand voice and messaging</li>
+        <li>Design governance</li>
+        <li>Digital brand guidelines</li>
+      </ul>
+    </div>
+
+    <div class="service">
+      <h2>Digital Platforms</h2>
+      <p>We build high-performance digital platforms engineered to convert and scale.</p>
+      <ul>
+        <li>Websites and front-end systems</li>
+        <li>Conversion-focused UX</li>
+        <li>Performance optimisation</li>
+        <li>Scalable architecture</li>
+      </ul>
+    </div>
+
+    <div class="service">
+      <h2>Paid Growth</h2>
+      <p>Precision-led paid growth strategies designed to scale efficiently without compromising brand integrity.</p>
+      <ul>
+        <li>Paid search and social campaigns</li>
+        <li>Testing and optimisation</li>
+        <li>Performance reporting</li>
+        <li>Scalable growth frameworks</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Let’s discuss how our services can support your growth</h2>
+    <a href="work.html">Start a conversation</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <div class="footer-brand">
+      <img src="ket .png" alt="Kext logo">
+    </div>
+
+    <div>
+      <h4>Navigation</h4>
+      <p>Home</p>
+      <p>Services</p>
+      <p>Work with us</p>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>Hello@kextmedia.com</p>
+      <p>United Kingdom</p>
+    </div>
+
+  </div>
+</footer>
+
+
+</body>
+</html>
